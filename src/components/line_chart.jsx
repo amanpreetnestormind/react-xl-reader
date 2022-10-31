@@ -53,10 +53,6 @@ export default class LineChart extends Component {
         if (prevState.data !== this.state.data) {
             this.getGraphData()
         }
-        // if (isUpdate) {
-        //     this.getGraphData()
-        //     // setIsUpdate({ ...isUpdate, isUpdate: false })
-        // }
     }
 
 

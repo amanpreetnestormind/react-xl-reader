@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import { Box } from '@material-ui/core';
 import { Button, Table } from 'react-bootstrap';
-import { AiOutlineCloudUpload, AiOutlineCloudDownload } from 'react-icons/ai'
+import { AiOutlineCloudUpload } from 'react-icons/ai'
 import moment from 'moment';
 import * as XLSX from "xlsx";
-import * as FileSaver from "file-saver";
 import LineChart from './line_chart';
-const fileType =
-  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
-const fileExtension = ".xlsx";
 
 export default class TableData extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
@@ -25,24 +22,11 @@ export default class TableData extends Component {
     this.processData = this.processData.bind(this)
   }
 
-  // exportToExcel = () => {
-  //   // const local = JSON.parse(localStorage.getItem("admin_coupon"))
-  //   let xls = tableData?.data?.map(row => {
-  //     return {
-  //       "Firstname": row.firstName,
-  //       "Lastname": row.lastName,
-  //       "Middlename": row.middelName,
-  //       "Email": row.email,
-  //       "DOB": moment(row.dateOfBirth).format("DD-MM-YYYY"),
-  //       "Phonenumber": row.phoneNumber
-  //     };
-  //   });
-  //   const ws = XLSX.utils.json_to_sheet(xls);
-  //   const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
-  //   const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
-  //   const data = new Blob([excelBuffer], { type: fileType });
-  //   FileSaver.saveAs(data, "User's List" + fileExtension);
-  // };
+  /**
+   * @param {*} dataString 
+   * @method processData 
+   * @description this function used to get header and rows from csv or excel file
+   */
 
   processData = (dataString) => {
 
@@ -85,6 +69,12 @@ export default class TableData extends Component {
     this.setState({ ...this.state, columns, data: list, tableRows: list.slice(2, dataLength) })
   };
 
+  /**
+   * @param {*} e 
+   * @method handleFileUpload
+   * @description this function used browse file fromlocal computer
+   */
+
   handleFileUpload = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -101,9 +91,10 @@ export default class TableData extends Component {
     };
     reader.readAsBinaryString(file);
   };
+
   render() {
 
-    const { columns, data, rowModesModel, tableRows } = this.state
+    const { columns, data, tableRows } = this.state
     const graphHeader = data.slice(0, 2)
     const tableRowData = tableRows?.map((col, index) => {
       let obj = {}
@@ -149,7 +140,6 @@ export default class TableData extends Component {
                             col.name.replace(",,", ",") === 'RWT,,mm' ? 'number' : "string"
     }))
 
-    console.log(this.state, "state");
     return (
       <Box>
         {data.length > 0 && <LineChart
@@ -162,9 +152,7 @@ export default class TableData extends Component {
           setIsUpdate={this.setState}
         />}
         <Box className='justify-content-between d-flex w-100'>
-          <Box>
-            <h3 className=''>History</h3>
-          </Box>
+          <h3 className=''>History</h3>
           <Box className='d-flex gap-2'>
             <Box className="buttonContainer">
               <Button as='button' className='btn-sm btn-success' >
@@ -178,25 +166,10 @@ export default class TableData extends Component {
                 onChange={this.handleFileUpload}
               />
             </Box>
-            {/* <Box className="buttonContainer">
-              <Button as='button' className='btn-sm btn-primary' >
-                <AiOutlineCloudDownload style={{ marginRight: "5px", }} />
-                Export</Button>
-              {/* <input
-                type="file"
-                className="uploadButton"
-                multiple
-                accept=".pdf"
-                onChange={(e) => {
-
-                }}
-              /> 
-            </Box> */}
           </Box>
         </Box>
 
         <Box sx={{
-          // height: 300,
           width: '100%',
         }}>
           <DataGrid
