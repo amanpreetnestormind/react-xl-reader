@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.buttonContainer {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  cursor: pointer;
+  align-items: center;
+}
+
+.uploadButton {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.less-then-zero {
+  color: rgb(255, 0, 0);
+}
+
+.RWT-lesser {
+  color: #fff;
+  background-color: rgb(255, 0, 0);
+}
+
+.custom-header {
+  background-color: #9090902d;
+}
+
+.error-boundary-main {
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

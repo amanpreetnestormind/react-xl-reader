@@ -1,0 +1,28 @@
+Remaining Wall Thickness and Corrosion Rates - 21 Sep 2021,,,,,,,,,,,,,,,,,
+T1: Time to reach CONC based on short term corrosion rate     |    T2: Time to reach CONC based on long term corrosion rate     |    T3: Time to reach MAWT based on short term corrosion rate     |    T4: Time to reach MAWT based on long term corrosion rate,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+History,,,,,,,,,,,,,,,,,
+No.,Insp. Date,"RWT,
+mm",Measurement Status,"LT CR,
+mmpy","ST CR,
+mmpy","NWT,
+mm","CONC/T-
+alert, mm","MAWT/T-
+anomaly, mm","T1,
+yrs","T2,
+yrs","T3,
+yrs","T4,
+yrs",Report,Taken By,Probe/Isotope,Inspection Technique,Comments
+10,"21 Sep
+2021",8.5,Active,0.33,6.76,13.49,5.8,4.11,0.4,8.15,0.65,13.25,AIE-16-UTP-30,Mr. Tom Harry,,UT,
+9,25-Aug-21,9,Active,0.3,-3.65,13.49,5.8,4.11,-0.88,10.68,-1.34,16.33,,,,UT,"As short term corrosion rate is negative, review is required by Integrity Engineer"
+8,15-Aug-21,8.9,Active,0.31,5.21,13.49,5.8,4.11,0.59,10.11,0.92,15.62,,,,UT,
+7,08-Aug-21,9,Active,0.3,0.3,13.49,5.8,4.11,0.01,10.65,0.02,16.28,,,,UT,
+6,04-Aug-21,12,Active,0.1,-547.5,13.49,5.8,4.11,-0.01    62.14,,-0.01    79.08,,,,,UT,"As short term corrosion rate is negative, review is required by Integrity Engineer"
+5,02-Aug-21,9,Active,0.3,182.5,13.49,5.8,4.11,0.02     10.64,,0.03     16.26,,,,,UT,"As short term corrosion rate is negative, review is required by Integrity Engineer"
+4,01-Aug-21,9.5,Active,0.27,-26.07,13.49,5.8,4.11,-0.14    13.84,,-0.21    20.16,,,,,UT,"As short term corrosion rate is negative, review is required by Integrity Engineer"
+3,27-Jun-21,7,Active,0.44,91.25,13.49,5.8,4.11,0.01     2.74,,0.03     6.6,,,,,UT,
+2,15-Jun-21,10,Active,0.24,-486.67,13.49,5.8,4.11,-0.01    17.81,,-0.01    24.97,,,,,UT,"As short term corrosion rate is negative, review is required by Integrity Engineer"
+1,"09 Jun
+2021",2,Active,0.78,2.26,13.49,5.8,4.11,-1.68,-4.89,-0.94,-2.71,,,,UT,
+0,09-Jul-16,13.1,Active,0.04,0,13.49,5.8,4.11,184.56,,227.29,,AIE-16-UTP-30,Mr. Tom Harry,,UT,
