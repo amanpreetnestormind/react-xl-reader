@@ -41,7 +41,7 @@ export default class LineChart extends Component {
             parseFloat(data['T3,,yrs']) || 0,// y-axsis
             parseFloat(data['T4,,yrs']) || 0,// y-axsis
         ]))
-        
+
         const lastYear = this.state.end_date ? this.state.end_date : this.generateXList()[this.generateXList().length - 1]
         const lastYearData = graphData.map((data) => ([
             lastYear,
@@ -113,9 +113,9 @@ export default class LineChart extends Component {
     }
 
     render() {
-        // setInterval(() => {
-        //     this.getGraphData()
-        // }, 1000);
+        setInterval(() => {
+            this.getGraphData()
+        }, 1000);
 
         const { graph_data, allDatesArr, end_date } = this.state
         const { graphHeader } = this.props
