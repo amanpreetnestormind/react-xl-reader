@@ -6,6 +6,7 @@ import { AiOutlineCloudUpload } from 'react-icons/ai'
 import moment from 'moment';
 import * as XLSX from "xlsx";
 import LineChart from './line_chart';
+import { replaceDoubleCommas } from '../commonFunctions';
 
 export default class TableData extends Component {
 
@@ -116,28 +117,28 @@ export default class TableData extends Component {
     const tableColumData = columns?.map((col) => ({
       field: col.name,
       valueFormatter: ({ value }) => `${value}`,
-      headerName: col.name.replace(",,", ","),
+      headerName: replaceDoubleCommas(col.name),
       minWidth:
-        col.name.replace(",,", ",") === 'Comments' ? 600 :
-          col.name.replace(",,", ",") === 'No.' ? 30 :
-            col.name.replace(",,", ",") === 'Measurement Status' ? 150 : 120,
+        replaceDoubleCommas(col.name) === 'Comments' ? 600 :
+          replaceDoubleCommas(col.name) === 'No.' ? 30 :
+            replaceDoubleCommas(col.name) === 'Measurement Status' ? 150 : 120,
       maxWidth:
-        col.name.replace(",,", ",") === 'Comments' ? 800 :
-          col.name.replace(",,", ",") === 'No.' ? 40 :
-            col.name.replace(",,", ",") === 'Measurement Status' ? 150 : 250,
-      editable: col.name.replace(",,", ",") === 'No.' ? false : true,
-      type: col.name.replace(",,", ",") === 'Insp. Date' ? 'date' :
-        col.name.replace(",,", ",") === 'Measurement Status' ? 'boolean' :
-          col.name.replace(",,", ",") === 'LT CR,,mmpy' ? 'number' :
-            col.name.replace(",,", ",") === 'ST CR,,mmpy' ? 'number' :
-              col.name.replace(",,", ",") === 'NWT,,mm' ? 'number' :
-                col.name.replace(",,", ",") === 'CONC/T-,alert, mm' ? 'number' :
-                  col.name.replace(",,", ",") === 'MAWT/T-,anomaly, mm' ? 'number' :
-                    col.name.replace(",,", ",") === 'T1,,yrs' ? 'number' :
-                      col.name.replace(",,", ",") === 'T2,,yrs' ? 'number' :
-                        col.name.replace(",,", ",") === 'T3,,yrs' ? 'number' :
-                          col.name.replace(",,", ",") === 'T4,,yrs' ? 'number' :
-                            col.name.replace(",,", ",") === 'RWT,,mm' ? 'number' : "string"
+        replaceDoubleCommas(col.name) === 'Comments' ? 800 :
+          replaceDoubleCommas(col.name) === 'No.' ? 40 :
+            replaceDoubleCommas(col.name) === 'Measurement Status' ? 150 : 250,
+      editable: replaceDoubleCommas(col.name) === 'No.' ? false : true,
+      type: replaceDoubleCommas(col.name) === 'Insp. Date' ? 'date' :
+        replaceDoubleCommas(col.name) === 'Measurement Status' ? 'boolean' :
+          replaceDoubleCommas(col.name) === 'LT CR,,mmpy' ? 'number' :
+            replaceDoubleCommas(col.name) === 'ST CR,,mmpy' ? 'number' :
+              replaceDoubleCommas(col.name) === 'NWT,,mm' ? 'number' :
+                replaceDoubleCommas(col.name) === 'CONC/T-,alert, mm' ? 'number' :
+                  replaceDoubleCommas(col.name) === 'MAWT/T-,anomaly, mm' ? 'number' :
+                    replaceDoubleCommas(col.name) === 'T1,,yrs' ? 'number' :
+                      replaceDoubleCommas(col.name) === 'T2,,yrs' ? 'number' :
+                        replaceDoubleCommas(col.name) === 'T3,,yrs' ? 'number' :
+                          replaceDoubleCommas(col.name) === 'T4,,yrs' ? 'number' :
+                            replaceDoubleCommas(col.name) === 'RWT,,mm' ? 'number' : "string"
     }))
 
     return (
@@ -148,7 +149,7 @@ export default class TableData extends Component {
           tableRowData={tableRowData}
           graphHeader={graphHeader}
           tableColumData={tableColumData}
-          isUpdate={this.state}
+          isUpdate={this.state.isUpdate}
           setIsUpdate={this.setState}
         />}
         <Box className='justify-content-between d-flex w-100'>
@@ -203,7 +204,7 @@ export default class TableData extends Component {
               return params.value < 0 ? 'less-then-zero' : 'cold';
             }}
             getRowId={(row) => (row.id)}
-            pageSize={11}
+            pageSize={7}
             rowsPerPageOptions={[5]}
             checkboxSelection={false}
             disableSelectionOnClick

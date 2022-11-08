@@ -50,3 +50,25 @@ code {
   align-items: center;
   justify-content: center;
 }
+
+.headerBar {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  background: #9090902d;
+  padding: 10px;
+  align-items: center
+}
+
+.headerTextContainer {}
+
+.headerText {
+  font-size: 13px;
+}
+
+.headerSelectContainer {}
+
+.headerSelectBox {
+  height: 22px;
+  font-size: 12px;
+}
